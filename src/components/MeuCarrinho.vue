@@ -1,10 +1,16 @@
 <script setup>
 import {carrinho, atualizaQuantidadeItem, removerItemCarrinho} from '@/_data/carrinho.js'
+
+
 function formatarPreco(preco) {
   return 'R$ ' + preco.toFixed(2).replace('.', ',')
 }
+
+import TrashCanOutline from 'vue-material-design-icons/TrashCanOutline.vue'
+
 import MeuBotao from "@/components/MeuBotao.vue";
 import CarrinhoVazio from "@/components/CarrinhoVazio.vue";
+
 
 </script>
 
@@ -34,14 +40,14 @@ import CarrinhoVazio from "@/components/CarrinhoVazio.vue";
                       min="1"
                     />
                   </p>
-                  <button @click="removerItemCarrinho(item)">&#128465;</button>
+                <meu-botao class="primario" @click="removerItemCarrinho(item)"><trash-can-outline /> </meu-botao>
                   <p>Total: {{ formatarPreco(item.total) }}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <meu-botao text="Limpar Carrinho"/>
+        <meu-botao class="primario" text="Limpar Carrinho"/>
         <p class="carrinho-total">Total: {{ formatarPreco(carrinho.total) }}</p>
       </div>
     </div>
